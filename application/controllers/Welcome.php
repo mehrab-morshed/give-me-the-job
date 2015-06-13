@@ -23,7 +23,7 @@ class Welcome extends CI_Controller {
 		//$this->load->view('welcome_message');
 		
 		$query = $this->db->get("employees");
-		foreach($query->result()) as $row)
+		foreach($query->result() as $row)
 		{
 			echo $row->first_name;
 			echo " ";
