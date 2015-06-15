@@ -1,14 +1,10 @@
 <?php
 
-require(APPPATH . '/libraries/REST_Controller.php');
+//require(APPPATH . '/libraries/REST_Controller.php');
 
-class Greetings extends REST_Controller {
+class Greetings extends CI_Controller {
 
-	function index() {
-        $this->response(array('name' => 'magi'));
-    }
-
-    function answers_get() {
+    function index() {
         if (!$this->get('q')) {
             $this->response(NULL, 400);
         }
