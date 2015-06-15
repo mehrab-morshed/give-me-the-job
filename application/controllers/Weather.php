@@ -19,7 +19,7 @@ class Weather extends CI_Controller {
 			
 			//the query for weather
 			
-			echo $city;
+//			echo $city;
 			
 			$query = json_decode(
 				file_get_contents("http://api.openweathermap.org/data/2.5/weather?q=$city")
