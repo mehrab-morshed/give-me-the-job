@@ -4,7 +4,11 @@ require(APPPATH . '/libraries/REST_Controller.php');
 
 class Greetings extends REST_Controller {
 
-    function index_get() {
+	function index() {
+        $this->response(array('name' => 'magi'));
+    }
+
+    function answers_get() {
         if (!$this->get('q')) {
             $this->response(NULL, 400);
         }
