@@ -5,17 +5,20 @@
 class Greetings extends CI_Controller {
 
     function index() {
-        if (!$this->get('q')) {
-            $this->response(NULL, 400);
-        }
-		echo $this->get('q');
+		if(isset($_GET["q"])){
 		
-		if(strpos($q,"Hi!")!==false || strpos($q,"Hello")!==false)
-			$data['response'] = "Hello, Kitty! Welcome to planet Earth!";
-		else 
-			$data['response'] = "invalid question";
-		
-        $this->response($data);
+			//if (!$this->get('q')) {
+		//		$this->response(NULL, 400);
+		//	}
+			echo $_GET["q"];
+			$q = $_GET["q"];
+			if(strpos($q,"Hi!")!==false || strpos($q,"Hello")!==false)
+				$data['answer'] = "Hello, Kitty! Welcome to planet Earth!";
+			else 
+				$data['answer'] = "invalid question";
+			
+			$this->response($data);
     }
+	else echo "please give a question";
 }
 
