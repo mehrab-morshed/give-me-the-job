@@ -32,7 +32,7 @@ class Qa extends CI_Controller {
 						//echo $answer->results->bindings[0]->$target->type;
 						if($answer->results->bindings[0]->$target->type=="literal")
 						{
-							echo "true";
+				//			echo "true";
 							for($i=0;$i<sizeof($answer->results->bindings);$i++)
 							{
 								if($answer->results->bindings[$i]->$target->$xml=='en')
@@ -43,7 +43,6 @@ class Qa extends CI_Controller {
 						}
 						else $data['answer'] = $answer->results->bindings[0]->$target->value;
 					}
-				
 			}
 			$result = json_encode($data);
 			echo $result;

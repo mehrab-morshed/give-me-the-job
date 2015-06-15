@@ -15,33 +15,17 @@ class Weather extends CI_Controller {
 			$lastSpace = strrpos($q,"in");
             $lastSpace=$lastSpace+2;
             $city=substr($q,$lastSpace, strpos($q, '?'));
-			$city = trim($city, "?");
+			$city = rtrim($city, "?\"");
 			
+			//echo $city;
 			//the query for weather
 			
-//			echo $city;
+			
 			
 			$query = json_decode(
 				file_get_contents("http://api.openweathermap.org/data/2.5/weather?q=$city")
 				);
-/*
-			foreach ($query as $key => $value) { 
-				echo "$key <br>";
-				//if($key == 'clouds')
-					//
-				//echo "yes";
-				/*
-				if(is_array($value))
-				{
-					foreach ($value as $k => $v) { 
-						echo "$k | $v <br />"; 
-					}
-				}
-				
-			}
 
-			print_r($query);
-	*/					
 			if(strpos($q,"temperature")==true)
 			{
 				//echo "temp found";
