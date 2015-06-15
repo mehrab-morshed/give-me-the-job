@@ -14,8 +14,12 @@ class Greetings extends REST_Controller {
         }
 		echo $this->get('q');
 		
+		if((strpos($q,"Hi!")!=false) !! strpos($q,"Hello")!=false))
+			$data['response'] = "Hello, Kitty! Welcome to planet Earth!"
+		else 
+			$data['response'] = "invalid question";
 		
-        
+        $this->response($data);
     }
 }
 
