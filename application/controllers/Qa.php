@@ -12,7 +12,7 @@ class Qa extends CI_Controller {
 			$sparql = json_decode(
 				file_get_contents("http://quepy.machinalis.com/engine/get_query?question=$q"),false
 				);
-			
+			//print_r($sparql);
 			$dbquery = $sparql->queries[0]->query;
 			
 			if($dbquery!=null)
@@ -25,16 +25,23 @@ class Qa extends CI_Controller {
 				$answer = json_decode(
 					file_get_contents("http://dbpedia.org/sparql?query=$dbquery&format=json",false)
 					);
+					//print_r($answer);
 					$xml = "xml:lang";
 					if(sizeof($answer->results->bindings)!=0)
 					{
-						for($i=0;$i<sizeof($answer->results->bindings);$i++)
+						//echo $answer->results->bindings[0]->$target->type;
+						if($answer->results->bindings[0]->$target->type=="literal")
 						{
-							if($answer->results->bindings[$i]->$target->$xml=='en')
+							echo "true";
+							for($i=0;$i<sizeof($answer->results->bindings);$i++)
 							{
-								$data['answer'] = $answer->results->bindings[$i]->$target->value;
+								if($answer->results->bindings[$i]->$target->$xml=='en')
+								{
+									$data['answer'] = $answer->results->bindings[$i]->$target->value;
+								}
 							}
 						}
+						else $data['answer'] = $answer->results->bindings[0]->$target->value;
 					}
 				
 			}
