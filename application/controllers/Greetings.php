@@ -12,8 +12,9 @@ class Greetings extends REST_Controller {
         if (!$this->get('q')) {
             $this->response(NULL, 400);
         }
-		$q = rawurldecode($q);
-		$this->response($q);
+		echo $this->get('q');
+		//$q = rawurldecode($q);
+		//$this->response($q);
         //$this->db->where('employee_id', $this->get('id'));
 		
         
