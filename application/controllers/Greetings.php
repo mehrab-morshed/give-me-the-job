@@ -4,7 +4,7 @@ require(APPPATH . '/libraries/REST_Controller.php');
 
 class Greetings extends REST_Controller {
 
-    function index() {
+    function index_get() {
         if (!$this->get('q')) {
             $this->response(NULL, 400);
         }
