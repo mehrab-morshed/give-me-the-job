@@ -1,0 +1,11 @@
+for the greeting
+
+use the api like this: https://limitless-tor-3376.herokuapp.com/greetings?q=Hello! how are you?
+
+for the weather updates 
+
+use the api like this: https://limitless-tor-3376.herokuapp.com/weather?q=What is today's temperature in Dhaka?
+
+for basic world question 
+
+use the api like this: https://limitless-tor-3376.herokuapp.com/qa?q=What is the population of China?
