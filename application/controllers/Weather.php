@@ -56,7 +56,7 @@ class Weather extends CI_Controller {
 							//echo "$k | $v k<br />"; 
 							if($k == 'temp')
 							{
-								$data['answer'] = "$v k";
+								$data['answer'] = "$v K";
 							//	echo "$k | $v k<br />"; 
 							}
 						}	
